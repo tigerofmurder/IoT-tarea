@@ -4,8 +4,6 @@ services:
     image: eclipse-mosquitto
     volumes:
       - "./mosquitto:/mosquitto"
-    networks:
-      - localnet
     ports:
       - "1883:1883"
   node-red:
@@ -15,8 +13,6 @@ services:
     volumes:
       - "./node-red:/data"
     user: "0"
-    networks:
-      - localnet
     ports:
       - "1880:1880"
   database:
@@ -36,7 +32,7 @@ services:
     ports:
       - 8083:80
     environment:
-      - PMA_HOST=mysql
+      - PMA_HOST=database
     depends_on:
       - database
 networks:
