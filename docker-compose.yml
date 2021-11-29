@@ -9,7 +9,7 @@ services:
   node-red:
     depends_on:
       - broker
-    image: nodered/node-red-docker
+    image: nodered/node-red:latest
     volumes:
       - "./node-red:/data"
     user: "0"
